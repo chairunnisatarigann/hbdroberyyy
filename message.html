@@ -17,100 +17,102 @@
             background-color: #fbc2eb;
         }
 
-        /* CONTAINER DIBUAT LEBIH LEBAR */
+        /* CONTAINER DIBUAT JAUH LEBIH LEBAR & BESAR */
         .gameboy-container {
-            width: 95%;
-            max-width: 550px; /* Ditambah lebarnya dari 450px/500px ke 550px */
-            background: #3d4e56;
-            padding: 30px;
-            border-radius: 20px 20px 60px 20px;
-            box-shadow: 15px 15px 0px rgba(0,0,0,0.2);
+            width: 95% !important;
+            max-width: 700px !important; /* Naikkan dari 550px ke 700px */
+            background: #3d4e56 !important;
+            padding: 40px !important;
+            border-radius: 20px 20px 60px 20px !important;
+            box-shadow: 20px 20px 0px rgba(0,0,0,0.2) !important;
         }
 
         .screen-container {
-            background: #2d3133;
-            padding: 15px; /* Frame luar layar */
-            border-radius: 10px;
-            border: 4px solid #222;
+            background: #2d3133 !important;
+            padding: 20px !important;
+            border-radius: 15px !important;
+            border: 6px solid #222 !important;
         }
 
+        /* LAYAR PUTIH DIBUAT LEBIH TINGGI & LEGA */
         .message-screen {
             background: white !important;
-            height: 400px; /* Lebih tinggi sedikit biar proporsional sama lebarnya */
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            overflow-y: auto;
-            padding: 25px !important; /* Padding dalam diperlebar */
-            border-radius: 5px;
-            box-sizing: border-box;
+            height: 500px !important; /* Naikkan dari 400px ke 500px */
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: flex-start !important;
+            overflow-y: auto !important;
+            padding: 35px !important; /* Padding dalam diperbesar */
+            border-radius: 8px !important;
+            box-sizing: border-box !important;
         }
 
         .message-header h3 {
             font-family: 'Press Start 2P', cursive;
-            font-size: 16px; 
-            margin-bottom: 25px;
-            color: #ff4d6d;
+            font-size: 20px !important; /* Judul lebih besar */
+            margin-bottom: 30px !important;
+            color: #ff4d6d !important;
             text-align: center;
-            border-bottom: 3px double #ffb3ba;
-            padding-bottom: 15px;
+            border-bottom: 4px double #ffb3ba !important;
+            padding-bottom: 20px !important;
         }
 
         .message-body {
             font-family: 'Poppins', sans-serif;
-            text-align: left;
+            text-align: left !important;
         }
 
         .message-body p:first-child {
             font-weight: 600;
-            font-size: 18px; /* Nama Roberry jadi lebih tegas */
-            margin-bottom: 15px;
-            color: #333;
+            font-size: 22px !important; /* Nama jadi sangat jelas */
+            margin-bottom: 20px !important;
+            color: #333 !important;
         }
 
         .message-body p:last-child {
-            font-size: 15px; /* Teks isi naik sedikit ukurannya */
-            line-height: 1.8;
-            color: #444;
+            font-size: 18px !important; /* Isi pesan jauh lebih besar (dari 15px ke 18px) */
+            line-height: 1.8 !important;
+            color: #444 !important;
         }
 
-        /* Scrollbar biar tetep rapi */
+        /* Tombol BACK diperbesar agar seimbang */
+        .back-btn-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .btn-back {
+            display: inline-block !important;
+            padding: 20px 60px !important;
+            font-size: 16px !important;
+            font-family: 'Press Start 2P' !important;
+            background: #222 !important;
+            color: white !important;
+            text-decoration: none !important;
+            border-radius: 12px !important;
+            box-shadow: 0 8px 0 #000 !important;
+        }
+
+        .btn-back:active {
+            transform: translateY(4px) !important;
+            box-shadow: 0 4px 0 #000 !important;
+        }
+
+        /* Scrollbar lebih tebal */
         .message-screen::-webkit-scrollbar {
-            width: 6px;
+            width: 10px;
         }
         .message-screen::-webkit-scrollbar-thumb {
             background: #ff4d6d;
             border-radius: 10px;
-        }
-
-        .back-btn-container {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .btn-back {
-            display: inline-block;
-            padding: 15px 40px;
-            font-size: 12px;
-            font-family: 'Press Start 2P';
-            background: #222;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            box-shadow: 0 5px 0 #000;
-        }
-
-        .btn-back:active {
-            transform: translateY(3px);
-            box-shadow: 0 2px 0 #000;
         }
     </style>
 </head>
 <body>
     <div class="gameboy-container">
         <div class="gb-top">
-            <div style="width: 12px; height: 12px; background: #ff0000; border-radius: 50%; box-shadow: 0 0 8px #ff0000; margin-right: 15px; display: inline-block;"></div>
-            <span style="color: #999; font-family: 'Press Start 2P'; font-size: 12px; letter-spacing: 2px;">GAME-BOY</span>
+            <div style="width: 15px; height: 15px; background: #ff0000; border-radius: 50%; box-shadow: 0 0 10px #ff0000; margin-right: 15px; display: inline-block;"></div>
+            <span style="color: #999; font-family: 'Press Start 2P'; font-size: 14px; letter-spacing: 2px;">GAME-BOY</span>
         </div>
 
         <div class="screen-container">
