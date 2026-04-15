@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player - Robbery</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="gameboy-container">
+        <div class="gb-top">
+            <div class="power-light"></div>
+            <div class="logo-text">GAME-BOY</div>
+        </div>
+
+        <div class="screen-container">
+            <div class="message-screen">
+                <h3 style="font-size: 10px; color: #ff4d6d; margin-bottom: 20px;">MUSIC PLAYER</h3>
+                
+                <p style="font-size: 8px; margin-bottom: 15px;">STATUS: <span id="status" style="color:#ff4d6d">PAUSED</span></p>
+                
+                <button onclick="toggleMusic()" id="btnPlay" style="background:#ffb3ba; border:none; padding:12px; border-radius:5px; font-family:'Press Start 2P'; font-size:9px; cursor:pointer; color:white; box-shadow: 0 4px 0 #ef9da5;">CLICK TO PLAY</button>
+
+                <audio id="myAudio" loop>
+                    <source src="lagu.mp3" type="audio/mpeg">
+                </audio>
+
+                <p style="font-size: 7px; margin-top: 20px; color: #666; line-height: 1.6; padding: 0 10px;">
+                    Because it's your birthday, I picked an Indonesian song for you. 
+                    Just search the meaning on Google: 
+                    <span style="color: #ff4d6d; display: block; margin-top: 5px;">"JAMRUD – Selamat Ulang Tahun"</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="back-btn-container">
+            <a href="index.html" class="btn-back">BACK</a>
+        </div>
+    </div>
+
+    <script>
+    function toggleMusic() {
+        var audio = document.getElementById("myAudio");
+        var status = document.getElementById("status");
+        var btn = document.getElementById("btnPlay");
+        if (audio.paused) {
+            audio.play();
+            status.innerHTML = "PLAYING";
+            btn.innerHTML = "PAUSE";
+        } else {
+            audio.pause();
+            status.innerHTML = "PAUSED";
+            btn.innerHTML = "PLAY";
+        }
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Boy HBD - Robbery</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        /* Animasi kue ditaruh di sini agar rapi */
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .cake-img {
+            width: 110px; /* Sedikit lebih besar karena teks modul sudah hilang */
+            height: auto; 
+            margin-bottom: 15px; 
+            animation: bounce 2s infinite ease-in-out;
+        }
+
+        .main-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 10px;
+        }
+
+        .birthday-text {
+            font-size: 10px;
+            color: #ff4d6d;
+            text-align: center;
+            line-height: 1.6;
+            margin: 0;
+            font-family: 'Press Start 2P', cursive;
+        }
+    </style>
+</head>
+<body>
+    <div class="gameboy-container">
+        <div class="gb-top">
+            <div class="power-light"></div>
+            <div class="logo-text">GAME-BOY</div>
+        </div>
+
+        <div class="screen-container">
+            <div class="main-screen">
+                <img src="cake.png" alt="cake" class="cake-img">
+                <h2 class="birthday-text">
+                    HAPPY BIRTHDAY<br>ROBBERY!
+                </h2>
+                </div>
+        </div>
+
+        <div class="menu-grid">
+            <a href="message.html" class="menu-btn btn-pink">MESSAGE</a>
+            <a href="gallery.html" class="menu-btn btn-blue">GALLERY</a>
+            <a href="music.html" class="menu-btn btn-purple">MUSIC</a>
+            <a href="gift.html" class="menu-btn btn-green">GIFT ⭐</a>
+        </div>
+
+        <div class="gb-controls">
+            <div class="d-pad">
+                <div class="up"></div>
+                <div class="right"></div>
+                <div class="down"></div>
+                <div class="left"></div>
+            </div>
+            <div class="action-btns">
+                <div class="btn-b">B</div>
+                <div class="btn-a">A</div>
+            </div>
+        </div>
+
+        <div style="height: 40px;"></div>
+    </div>
+</body>
+</html>

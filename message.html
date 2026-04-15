@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message 💌</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        /* Khusus untuk halaman message agar teksnya rapi */
+        .message-screen {
+            justify-content: flex-start !important; /* Mulai dari atas, bukan tengah */
+            overflow-y: auto !important; /* Biar bisa di-scroll kalau kepanjangan */
+            padding: 10px !important;
+        }
+
+        .message-header h3 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 10px;
+            margin-bottom: 15px;
+            color: #ff4d6d;
+        }
+
+        .message-body {
+            font-family: 'Poppins', sans-serif; /* Font lebih bersih biar gak numpuk */
+            text-align: left;
+            padding: 0 5px;
+        }
+
+        .message-body p:first-child {
+            font-weight: 600;
+            font-size: 11px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .message-body p:last-child {
+            font-size: 9.5px; /* Ukuran sedang dan proporsional */
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Scrollbar tipis biar tetep estetik */
+        .message-screen::-webkit-scrollbar {
+            width: 4px;
+        }
+        .message-screen::-webkit-scrollbar-thumb {
+            background: #ffb3ba;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="gameboy-container">
+        <div class="gb-top">
+            <div class="power-light"></div>
+            <div class="logo-text">GAME-BOY</div>
+        </div>
+
+        <div class="screen-container">
+            <div class="message-screen">
+                <div class="message-header"><h3>MESSAGE</h3></div>
+                <div class="message-body">
+                    <p>Happy birthday, Roberry!</p>
+                    <p>
+                        You’re getting older… but don’t worry, still looking good haha. 
+                        I hope this year brings you lots of happiness, little moments that make you smile, and fewer stressful days. 
+                        <br><br>
+                        Life isn’t always easy, but you’ve been handling it really well—I’m really proud of you. 
+                        May you always be protected by God, surrounded by love, kept away from anything bad, and guided toward all the good things meant for you. 
+                        <br><br>
+                        Don’t forget to get enough sleep, okay? I know you like staying up haha. And keep going to the gym too… gotta stay strong. 
+                        Also… don’t forget about me, alright? 😄 slebewwww 
+                        <br><br>
+                        Btw sorry for all the yapping hahaha, hope you like it ✨.
+                        <br>Barakallah fii umrik 🎉
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="back-btn-container">
+            <a href="index.html" class="btn-back">BACK</a>
+        </div>
+    </div>
+</body>
+</html>

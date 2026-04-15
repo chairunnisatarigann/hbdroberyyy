@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Robbery</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        /* Mengatur layar dalam agar bisa di-scroll jika kata-katanya panjang */
+        .message-screen {
+            background: #ffffff; /* Putih bersih biar foto & teks jelas */
+            height: 280px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 12px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            border-radius: 5px;
+        }
+
+        /* Bingkai Foto ala monitor jadul */
+        .photo-monitor {
+            width: 150px; 
+            height: 110px;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            border: 3px solid #37474f; /* Warna Charcoal sesuai bodi GB */
+            flex-shrink: 0; /* Agar foto tidak gepeng saat teks banyak */
+        }
+
+        .photo-monitor img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Teks di bawah foto */
+        .caption-box {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+        }
+
+        .caption-title {
+            font-size: 10px;
+            font-weight: 600;
+            color: #ff4d6d;
+            margin-bottom: 5px;
+        }
+
+        .caption-text {
+            font-size: 9px;
+            line-height: 1.5;
+            color: #444;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="gameboy-container">
+        <div class="gb-top">
+            <div class="power-light"></div>
+            <div class="logo-text">GAME-BOY</div>
+        </div>
+
+        <div class="screen-container">
+            <div class="message-screen">
+                <h3 style="font-family: 'Press Start 2P'; font-size: 10px; color: #ff4d6d; margin-bottom: 15px;">GALLERY</h3>
+                
+                <div class="photo-monitor">
+                    <img src="rob.jpeg" alt="Memory">
+                </div>
+
+                <div class="caption-box">
+                    <p class="caption-title">Best Moments!</p>
+                    <p class="caption-text">
+                        "I don’t really have your photos, just this one and some random ones lol 😭
+hey, do you remember this photo? 😂
+ugh you’re being all shy hereeee, what is thissss 😂
+but oh well, this is the only pic I can show for now… it’s okay tho, right?
+hope you’ve got a better-looking one next time hehehe 😏
+ Cheers! 🍻"
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="back-btn-container">
+            <a href="index.html" class="btn-back">BACK</a>
+        </div>
+    </div>
+</body>
+</html>

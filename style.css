@@ -1,0 +1,176 @@
+/* style.css - Tema Soft Dark & Elegant */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Press+Start+2P&display=swap');
+
+body {
+    background-color: #fce4ec; /* Latar belakang luar tetep soft pink biar kontras */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Update di style.css */
+/* Update di style.css */
+
+.gameboy-container {
+    background: #37474f; 
+    width: 380px; /* Ukuran pas untuk Laptop */
+    padding: 25px;
+    border-radius: 25px;
+    border: 5px solid #263238;
+    box-shadow: 0 15px 0 #263238, 0 20px 30px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* KHUSUS UNTUK TAMPILAN HP */
+@media (max-width: 480px) {
+    .gameboy-container {
+        width: 90vw; /* Pakai 90% lebar layar HP */
+        padding: 15px;
+        transform: scale(1); /* Biar gak kekecilan */
+    }
+
+    .message-screen {
+        height: 320px; /* Di HP layarnya kita buat lebih tinggi biar enak scroll-nya */
+    }
+
+    .photo-monitor, #catVideo {
+        width: 100%; /* Foto & Video otomatis penuh mengikuti layar HP */
+    }
+}
+
+/* Biar tetap aman di HP, kita turunkan lagi skalanya khusus layar kecil */
+@media (max-width: 480px) {
+    .gameboy-container {
+        width: 300px;
+        transform: scale(0.9);
+    }
+}
+
+/* Bagian Atas */
+.gb-top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.power-light {
+    width: 8px;
+    height: 8px;
+    background-color: #ff5252; /* Merah kalem */
+    border-radius: 50%;
+    box-shadow: 0 0 5px #ff5252;
+}
+
+.logo-text {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 8px;
+    color: #cfd8dc; /* Warna silver soft */
+}
+
+/* Layar Luar (Bingkai Hitam) */
+.screen-container {
+    background: #212121; 
+    width: 100%;
+    padding: 18px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Layar Dalam (Tetap Putih Bersih agar tulisan kebaca) */
+.message-screen {
+    background: #ffffff; /* Putih bersih biar nggak pusing bacanya */
+    width: 100%;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    border-radius: 4px;
+}
+
+/* Tombol Menu */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.menu-btn {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 7px;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 6px;
+    color: white;
+    transition: 0.2s;
+}
+
+/* Warna tombol yang lebih 'Muted' (tidak terlalu ngejreng) */
+.btn-pink { background: #ec407a; box-shadow: 0 4px 0 #ad1457; }
+.btn-blue { background: #42a5f5; box-shadow: 0 4px 0 #1565c0; }
+.btn-purple { background: #ab47bc; box-shadow: 0 4px 0 #6a1b9a; }
+.btn-green { background: #66bb6a; box-shadow: 0 4px 0 #2e7d32; }
+
+/* Kontrol Fisik */
+.gb-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.d-pad {
+    width: 60px;
+    height: 60px;
+    background: #263238;
+    border-radius: 8px;
+    position: relative;
+}
+
+.action-btns {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-b, .btn-a {
+    width: 35px;
+    height: 35px;
+    background: #263238;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 9px;
+    color: #ec407a; /* Teks A/B pakai pink soft */
+    box-shadow: 0 4px 0 #1a1a1a;
+}
+
+/* Tombol Back */
+.btn-back {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 8px;
+    background: #cfd8dc;
+    color: #37474f;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 0 #90a4ae;
+}
