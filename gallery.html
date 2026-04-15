@@ -2,76 +2,145 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Gallery - Robbery</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
-        /* Mengatur layar dalam agar bisa di-scroll jika kata-katanya panjang */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #fbc2eb;
+        }
+
+        /* CONTAINER LEBAR KONSISTEN */
+        .gameboy-container {
+            width: 95%;
+            max-width: 550px; 
+            background: #3d4e56;
+            padding: 30px;
+            border-radius: 20px 20px 60px 20px;
+            box-shadow: 15px 15px 0px rgba(0,0,0,0.2);
+        }
+
+        .screen-container {
+            background: #2d3133;
+            padding: 15px;
+            border-radius: 10px;
+            border: 4px solid #222;
+        }
+
         .message-screen {
-            background: #ffffff; /* Putih bersih biar foto & teks jelas */
-            height: 280px;
+            background: #ffffff;
+            height: 420px; /* Tinggi disesuaikan */
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 12px;
+            padding: 25px;
             box-sizing: border-box;
             overflow-y: auto;
             border-radius: 5px;
         }
 
-        /* Bingkai Foto ala monitor jadul */
+        /* MONITOR FOTO DIPERBESAR */
         .photo-monitor {
-            width: 150px; 
-            height: 110px;
+            width: 100%; /* Memenuhi lebar layar putih */
+            max-width: 320px; 
+            height: 220px; /* Lebih tinggi dan besar */
             background: #000;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 12px;
-            border: 3px solid #37474f; /* Warna Charcoal sesuai bodi GB */
-            flex-shrink: 0; /* Agar foto tidak gepeng saat teks banyak */
+            margin-bottom: 20px;
+            border: 5px solid #333;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            flex-shrink: 0;
         }
 
         .photo-monitor img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; /* Foto tetap proporsional */
         }
 
-        /* Teks di bawah foto */
+        /* CAPTION BOX */
         .caption-box {
             font-family: 'Poppins', sans-serif;
             text-align: center;
+            width: 100%;
         }
 
         .caption-title {
-            font-size: 10px;
+            font-size: 16px;
             font-weight: 600;
             color: #ff4d6d;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 12px;
         }
 
         .caption-text {
-            font-size: 9px;
-            line-height: 1.5;
+            font-size: 14px;
+            line-height: 1.6;
             color: #444;
             margin: 0;
+            padding: 0 10px;
+        }
+
+        /* Judul Halaman */
+        .gallery-title {
+            font-family: 'Press Start 2P';
+            font-size: 16px;
+            color: #ff4d6d;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            width: 100%;
+            padding-bottom: 10px;
+        }
+
+        /* Scrollbar styling */
+        .message-screen::-webkit-scrollbar {
+            width: 6px;
+        }
+        .message-screen::-webkit-scrollbar-thumb {
+            background: #ffb3ba;
+            border-radius: 10px;
+        }
+
+        .back-btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .btn-back {
+            display: inline-block;
+            padding: 15px 40px;
+            font-size: 12px;
+            font-family: 'Press Start 2P';
+            background: #222;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 5px 0 #000;
         }
     </style>
 </head>
 <body>
     <div class="gameboy-container">
         <div class="gb-top">
-            <div class="power-light"></div>
-            <div class="logo-text">GAME-BOY</div>
+            <div style="width: 12px; height: 12px; background: #ff0000; border-radius: 50%; box-shadow: 0 0 8px #ff0000; margin-right: 15px; display: inline-block;"></div>
+            <span style="color: #999; font-family: 'Press Start 2P'; font-size: 12px; letter-spacing: 2px;">GAME-BOY</span>
         </div>
 
         <div class="screen-container">
             <div class="message-screen">
-                <h3 style="font-family: 'Press Start 2P'; font-size: 10px; color: #ff4d6d; margin-bottom: 15px;">GALLERY</h3>
+                <div class="gallery-title">GALLERY</div>
                 
                 <div class="photo-monitor">
                     <img src="rob.jpeg" alt="Memory">
@@ -81,11 +150,10 @@
                     <p class="caption-title">Best Moments!</p>
                     <p class="caption-text">
                         "I don’t really have your photos, just this one and some random ones lol 😭
-hey, do you remember this photo? 😂
-ugh you’re being all shy hereeee, what is thissss 😂
-but oh well, this is the only pic I can show for now… it’s okay tho, right?
-hope you’ve got a better-looking one next time hehehe 😏
- Cheers! 🍻"
+                        hey, do you remember this photo? 😂
+                        ugh you’re being all shy hereeee, what is thissss 😂
+                        but oh well, this is the only pic I can show for now… it’s okay tho, right?
+                        hope you’ve got a better-looking one next time hehehe 😏 Cheers! 🍻"
                     </p>
                 </div>
             </div>
