@@ -4,42 +4,153 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Boy HBD - Robbery</title>
-    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
-        /* Animasi kue ditaruh di sini agar rapi */
-        @keyframes bounce {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-        
-        .cake-img {
-            width: 110px; /* Sedikit lebih besar karena teks modul sudah hilang */
-            height: auto; 
-            margin-bottom: 15px; 
-            animation: bounce 2s infinite ease-in-out;
+        :root {
+            --gb-body: #3d4e56;
+            --gb-screen: #2d3133;
+            --btn-pink: #ff4d6d;
+            --btn-blue: #4da3ff;
+            --btn-purple: #a34dff;
+            --btn-green: #4dff8a;
         }
 
-        .main-screen {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            padding: 10px;
-        }
-
-        .birthday-text {
-            font-size: 10px;
-            color: #ff4d6d;
-            text-align: center;
-            line-height: 1.6;
+        body {
             margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #fbc2eb; /* Warna pink background luar */
             font-family: 'Press Start 2P', cursive;
+        }
+
+        /* CONTAINER GAMEBOY DIPERBESAR */
+        .gameboy-container {
+            width: 90%;
+            max-width: 500px; /* Ukuran maksimal lebih lebar dari sebelumnya */
+            background: var(--gb-body);
+            padding: 40px 20px;
+            border-radius: 20px 20px 60px 20px;
+            box-shadow: 15px 15px 0px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .gb-top {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 0 10px;
+        }
+
+        .power-light {
+            width: 12px;
+            height: 12px;
+            background: #ff0000;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #ff0000;
+            margin-right: 15px;
+        }
+
+        .logo-text {
+            color: #999;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        /* LAYAR DIPERBESAR */
+        .screen-container {
+            background: var(--gb-screen);
+            padding: 30px 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+            border: 4px solid #222;
+        }
+
+        .cake-icon {
+            font-size: 60px; /* Ukuran kue diperbesar */
+            margin-bottom: 20px;
+        }
+
+        .hbd-text {
+            color: var(--btn-pink);
+            font-size: 14px;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        /* MENU TOMBOL DIPERBESAR */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            padding: 0 10px;
+        }
+
+        .menu-btn {
+            padding: 20px 10px; /* Tombol lebih tinggi */
+            border: none;
+            border-radius: 8px;
+            font-family: 'Press Start 2P';
+            font-size: 10px; /* Teks tombol lebih jelas */
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 0px rgba(0,0,0,0.3);
+            transition: all 0.1s;
+        }
+
+        .menu-btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 1px 0px rgba(0,0,0,0.3);
+        }
+
+        .btn-message { background: var(--btn-pink); }
+        .btn-gallery { background: var(--btn-blue); }
+        .btn-music { background: var(--btn-purple); }
+        .btn-gift { background: var(--btn-green); color: #333; }
+
+        /* BAGIAN BAWAH GAMEBOY (DPAD & BUTTONS) */
+        .controls {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .d-pad {
+            width: 80px;
+            height: 80px;
+            background: #222;
+            border-radius: 10px;
+        }
+
+        .action-btns {
+            display: flex;
+            gap: 15px;
+        }
+
+        .circle-btn {
+            width: 50px;
+            height: 50px;
+            background: #222;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #444;
+            font-size: 12px;
         }
     </style>
 </head>
 <body>
+
     <div class="gameboy-container">
         <div class="gb-top">
             <div class="power-light"></div>
@@ -47,35 +158,25 @@
         </div>
 
         <div class="screen-container">
-            <div class="main-screen">
-                <img src="cake.png" alt="cake" class="cake-img">
-                <h2 class="birthday-text">
-                    HAPPY BIRTHDAY<br>ROBBERY!
-                </h2>
-                </div>
+            <div class="cake-icon">🎂</div>
+            <h1 class="hbd-text">HAPPY BIRTHDAY<br>ROBBERY!</h1>
         </div>
 
         <div class="menu-grid">
-            <a href="message.html" class="menu-btn btn-pink">MESSAGE</a>
-            <a href="gallery.html" class="menu-btn btn-blue">GALLERY</a>
-            <a href="music.html" class="menu-btn btn-purple">MUSIC</a>
-            <a href="gift.html" class="menu-btn btn-green">GIFT ⭐</a>
+            <a href="message.html" class="menu-btn btn-message">MESSAGE</a>
+            <a href="gallery.html" class="menu-btn btn-gallery">GALLERY</a>
+            <a href="music.html" class="menu-btn btn-music">MUSIC</a>
+            <a href="gift.html" class="menu-btn btn-gift">GIFT ✨</a>
         </div>
 
-        <div class="gb-controls">
-            <div class="d-pad">
-                <div class="up"></div>
-                <div class="right"></div>
-                <div class="down"></div>
-                <div class="left"></div>
-            </div>
+        <div class="controls">
+            <div class="d-pad"></div>
             <div class="action-btns">
-                <div class="btn-b">B</div>
-                <div class="btn-a">A</div>
+                <div class="circle-btn">B</div>
+                <div class="circle-btn">A</div>
             </div>
         </div>
-
-        <div style="height: 40px;"></div>
     </div>
+
 </body>
 </html>
