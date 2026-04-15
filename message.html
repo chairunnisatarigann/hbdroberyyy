@@ -2,67 +2,122 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Message 💌</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
-        /* Khusus untuk halaman message agar teksnya rapi */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #fbc2eb;
+        }
+
+        /* CONTAINER DIBUAT LEBIH LEBAR */
+        .gameboy-container {
+            width: 95%;
+            max-width: 550px; /* Ditambah lebarnya dari 450px/500px ke 550px */
+            background: #3d4e56;
+            padding: 30px;
+            border-radius: 20px 20px 60px 20px;
+            box-shadow: 15px 15px 0px rgba(0,0,0,0.2);
+        }
+
+        .screen-container {
+            background: #2d3133;
+            padding: 15px; /* Frame luar layar */
+            border-radius: 10px;
+            border: 4px solid #222;
+        }
+
         .message-screen {
-            justify-content: flex-start !important; /* Mulai dari atas, bukan tengah */
-            overflow-y: auto !important; /* Biar bisa di-scroll kalau kepanjangan */
-            padding: 10px !important;
+            background: white !important;
+            height: 400px; /* Lebih tinggi sedikit biar proporsional sama lebarnya */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow-y: auto;
+            padding: 25px !important; /* Padding dalam diperlebar */
+            border-radius: 5px;
+            box-sizing: border-box;
         }
 
         .message-header h3 {
             font-family: 'Press Start 2P', cursive;
-            font-size: 10px;
-            margin-bottom: 15px;
+            font-size: 16px; 
+            margin-bottom: 25px;
             color: #ff4d6d;
+            text-align: center;
+            border-bottom: 3px double #ffb3ba;
+            padding-bottom: 15px;
         }
 
         .message-body {
-            font-family: 'Poppins', sans-serif; /* Font lebih bersih biar gak numpuk */
+            font-family: 'Poppins', sans-serif;
             text-align: left;
-            padding: 0 5px;
         }
 
         .message-body p:first-child {
             font-weight: 600;
-            font-size: 11px;
-            margin-bottom: 10px;
+            font-size: 18px; /* Nama Roberry jadi lebih tegas */
+            margin-bottom: 15px;
             color: #333;
         }
 
         .message-body p:last-child {
-            font-size: 9.5px; /* Ukuran sedang dan proporsional */
-            line-height: 1.6;
-            color: #555;
-            margin-bottom: 20px;
+            font-size: 15px; /* Teks isi naik sedikit ukurannya */
+            line-height: 1.8;
+            color: #444;
         }
 
-        /* Scrollbar tipis biar tetep estetik */
+        /* Scrollbar biar tetep rapi */
         .message-screen::-webkit-scrollbar {
-            width: 4px;
+            width: 6px;
         }
         .message-screen::-webkit-scrollbar-thumb {
-            background: #ffb3ba;
+            background: #ff4d6d;
             border-radius: 10px;
+        }
+
+        .back-btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .btn-back {
+            display: inline-block;
+            padding: 15px 40px;
+            font-size: 12px;
+            font-family: 'Press Start 2P';
+            background: #222;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 5px 0 #000;
+        }
+
+        .btn-back:active {
+            transform: translateY(3px);
+            box-shadow: 0 2px 0 #000;
         }
     </style>
 </head>
 <body>
     <div class="gameboy-container">
         <div class="gb-top">
-            <div class="power-light"></div>
-            <div class="logo-text">GAME-BOY</div>
+            <div style="width: 12px; height: 12px; background: #ff0000; border-radius: 50%; box-shadow: 0 0 8px #ff0000; margin-right: 15px; display: inline-block;"></div>
+            <span style="color: #999; font-family: 'Press Start 2P'; font-size: 12px; letter-spacing: 2px;">GAME-BOY</span>
         </div>
 
         <div class="screen-container">
             <div class="message-screen">
                 <div class="message-header"><h3>MESSAGE</h3></div>
                 <div class="message-body">
-                    <p>Happy birthday, Roberry!</p>
+                    <p>Happy birthday, Roberry! 🎂</p>
                     <p>
                         You’re getting older… but don’t worry, still looking good haha. 
                         I hope this year brings you lots of happiness, little moments that make you smile, and fewer stressful days. 
@@ -74,7 +129,8 @@
                         Also… don’t forget about me, alright? 😄 slebewwww 
                         <br><br>
                         Btw sorry for all the yapping hahaha, hope you like it ✨.
-                        <br>Barakallah fii umrik 🎉
+                        <br><br>
+                        <strong>Barakallah fii umrik 🎉</strong>
                     </p>
                 </div>
             </div>
