@@ -7,22 +7,20 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
-        /* Reset dasar agar tidak berantakan di HP */
         body {
             margin: 0;
-            padding: 10px;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-color: #f0f0f0; /* Opsional: warna latar belakang luar */
+            background-color: #1a1a1a; /* Background gelap biar GameBoy stand out */
         }
 
-        /* Container GameBoy dibuat maksimal lebar layar HP */
         .gameboy-container {
-            width: 100%;
-            max-width: 350px; /* Lebar standar GameBoy di layar */
+            width: 350px; 
             margin: 0 auto;
+            /* Pastikan class di style.css tidak menimpa display ini */
         }
 
         @keyframes heartbeat {
@@ -31,20 +29,23 @@
         }
         
         .gift-wrapper {
-            font-size: 60px; 
+            font-size: 70px; 
             margin: 20px 0;
             display: inline-block;
-            animation: heartbeat 2s ease-in-out infinite;
+            animation: heartbeat 1.5s ease-in-out infinite;
             cursor: pointer;
-            -webkit-tap-highlight-color: transparent; /* Hilangkan highlight biru saat klik di HP */
+            transition: 0.2s;
+        }
+
+        .gift-wrapper:hover {
+            filter: drop-shadow(0 0 10px #ff4d6d);
         }
 
         #catVideo {
             display: none;
-            width: 90%; /* Video menyesuaikan lebar container */
-            max-width: 200px;
+            width: 220px; 
             height: auto;
-            border-radius: 12px;
+            border-radius: 8px;
             border: 4px solid #ffb3ba;
             margin: 10px 0;
             background: #000;
@@ -52,37 +53,37 @@
 
         .message-screen {
             background: #fff;
-            min-height: 250px; /* Gunakan min-height agar bisa membesar jika perlu */
+            height: 300px; 
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 15px;
+            padding: 20px;
             border-radius: 5px;
-            box-sizing: border-box; /* Penting agar padding tidak merusak ukuran */
+            box-sizing: border-box;
+            border: 4px solid #333;
         }
 
-        /* Responsive Text */
         .title-text {
             font-family: 'Press Start 2P';
-            font-size: 10px;
+            font-size: 11px;
             color: #ff4d6d;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
 
         .sub-text {
             font-family: 'Press Start 2P';
-            font-size: 8px;
-            margin-top: 10px;
+            font-size: 9px;
+            margin-top: 15px;
             color: #333;
         }
 
         .instruction {
-            font-size: 9px;
-            line-height: 1.5;
-            margin-top: 15px;
-            color: #666;
+            font-size: 10px;
+            font-family: Arial, sans-serif;
+            margin-top: 10px;
+            color: #888;
             font-style: italic;
         }
     </style>
@@ -100,8 +101,9 @@
                 
                 <div id="giftIcon" class="gift-wrapper" onclick="openGift()">🎁</div>
 
-                <video id="catVideo" loop playsinline>
+                <video id="catVideo" loop playsinline preload="auto">
                     <source src="kicau.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
                 </video>
                 
                 <p class="sub-text">LEVEL UP, ROBBERY!</p>
@@ -123,19 +125,29 @@
             var video = document.getElementById("catVideo");
             var instruction = document.getElementById("instructionText");
             
+            // 1. Sembunyikan Kado & Teks instruksi
             gift.style.display = "none";
-            video.style.display = "block";
-            instruction.style.display = "none"; // Hilangkan instruksi setelah diklik
+            if(instruction) instruction.style.display = "none";
             
-            video.muted = false; // Memastikan suara menyala
+            // 2. Tampilkan Video
+            video.style.display = "block";
+            
+            // 3. Pengaturan Audio
+            video.muted = false; 
             video.volume = 1.0; 
             
-            // Play video dengan penanganan error (sering terjadi di HP karena kebijakan privasi)
+            // 4. Load dan Putar (Kunci agar MP4 jalan di Laptop)
+            video.load(); 
             var playPromise = video.play();
 
             if (playPromise !== undefined) {
-                playPromise.catch(error => {
-                    console.log("Autoplay dicegah oleh browser, butuh interaksi user.");
+                playPromise.then(function() {
+                    console.log("Video playing successfully");
+                }).catch(function(error) {
+                    console.log("Playback failed: " + error);
+                    // Fail-safe: Jika gagal bersuara, putar tanpa suara
+                    video.muted = true;
+                    video.play();
                 });
             }
         }
